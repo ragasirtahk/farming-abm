@@ -1,0 +1,62 @@
+// Farming ABM Flowchart
+digraph {
+	Model [label=FarmingModel]
+	Init_Params [label="Initialize Parameters:
+- num_farmers
+- num_seasons
+- forecast_accuracy
+- subsidy_level
+- dissemination_modes
+- seed"]
+	Model -> Init_Params [label=Initializes]
+	Set_Seed [label="Set Seed for Reproducibility"]
+	Init_Params -> Set_Seed [label="If seed provided"]
+	Scale_Wealth [label="Scale Initial Wealth
+Based on total_initial_wealth"]
+	Set_Seed -> Scale_Wealth [label="Scale Wealth"]
+	Scale_Land [label="Scale Initial Land Sizes
+Based on total_initial_land"]
+	Scale_Wealth -> Scale_Land [label="Scale Land Sizes"]
+	Farmer [label="Farmer Agent"]
+	Forecaster [label="Forecaster Agent"]
+	Model -> Farmer [label="Initializes Farmers"]
+	Model -> Forecaster [label="Initializes Forecaster"]
+	Farmer_Vars [label="Variables:
+- land_size
+- wealth
+- type
+- trust_level
+- crop_type
+- total_yield
+- dissemination_mode"]
+	Farmer -> Farmer_Vars
+	Forecaster_Vars [label="Variables:
+- accuracy
+- dissemination_mode
+- rainfall_variability"]
+	Forecaster -> Forecaster_Vars
+	Forecaster -> Farmer [label="Provides Forecast"]
+	Farmer -> Forecaster [label="Updates Trust"]
+	Decision [label="Decide Crop"]
+	Farmer -> Decision [label="Based on Forecast & Risk Tolerance"]
+	Yield [label="Calculate Yield"]
+	Decision -> Yield [label="Apply Yield Rules"]
+	Yield -> Farmer [label="Update Wealth and Total Yield
+(+ Subsidy Level)"]
+	Trust [label="Update Trust Level"]
+	Yield -> Trust [label="Based on Earnings and Forecast Accuracy"]
+	Trust -> Farmer [label="Update Trust Level"]
+	Forecast_Crash [label="Forecast Accuracy Crash
+(5% Chance)"]
+	Forecaster -> Forecast_Crash [label="Possible Crash"]
+	Forecast_Crash -> Trust [label="If Crash Occurs"]
+	Data [label="Data Collection"]
+	Model -> Data [label="Collects Data"]
+	Farmer -> Data [label="Provides Data"]
+	Forecaster -> Data [label="Provides Data"]
+	Model_Step [label="Advance Model by One Step"]
+	Model -> Model_Step
+	Model_Step -> Data [label="Collect Data"]
+	Model_Step -> Farmer [label="Schedule Step"]
+	Model_Step -> Forecaster [label="Schedule Step"]
+}

@@ -1,0 +1,16 @@
+// Trust Dynamics Over Seasons
+digraph {
+	Start [label="Start Season"]
+	Forecast [label="Provide Forecast"]
+	Start -> Forecast
+	DecideCrop [label="Farmer Decides Crop"]
+	Forecast -> DecideCrop [label="Based on Forecast"]
+	CalculateYield [label="Calculate Yield"]
+	DecideCrop -> CalculateYield [label="Crop Type"]
+	UpdateWealth [label="Update Wealth and Total Yield"]
+	CalculateYield -> UpdateWealth
+	UpdateTrust [label="Update Trust Level"]
+	UpdateWealth -> UpdateTrust
+	UpdateTrust -> End [label="End Season"]
+	End [label="End Season"]
+}

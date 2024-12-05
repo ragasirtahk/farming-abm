@@ -1,0 +1,38 @@
+// Trust by Dissemination Mode
+digraph {
+	Start [label=Start]
+	DetermineDM [label="Determine Dissemination Modes"]
+	Start -> DetermineDM [label="Determine Modes"]
+	DM1 [label=Radio]
+	DM2 [label="Mobile App"]
+	DM3 [label="Extension Officer"]
+	DM4 [label="Community Leaders"]
+	DetermineDM -> DM1 [label=Radio]
+	DetermineDM -> DM2 [label="Mobile App"]
+	DetermineDM -> DM3 [label="Extension Officer"]
+	DetermineDM -> DM4 [label="Community Leaders"]
+	AdjustTrust [label="Adjust Trust Level"]
+	DM1 -> AdjustTrust [label="Less Personal"]
+	DM2 -> AdjustTrust [label=Baseline]
+	DM3 -> AdjustTrust [label="Personalized Advice"]
+	DM4 -> AdjustTrust [label="Community Influence"]
+	Loop [label="For Each Season"]
+	DetermineDM -> Loop [label="Start Simulation"]
+	Forecast [label="Provide Forecast"]
+	Loop -> Forecast
+	DecideCrop [label="Farmer Decides Crop"]
+	Forecast -> DecideCrop [label="Based on Forecast & Rules"]
+	CropRule [label="Determine Crop Type
+(Rainfall & Risk Tolerance)"]
+	Forecast -> CropRule [label="Evaluate Conditions"]
+	CropRule -> DecideCrop [label="Select Crop"]
+	CalculateYield [label="Calculate Yield"]
+	DecideCrop -> CalculateYield [label="Apply Yield Rules"]
+	UpdateWealth [label="Update Wealth and Total Yield"]
+	CalculateYield -> UpdateWealth
+	UpdateTrust [label="Update Trust Level"]
+	UpdateWealth -> UpdateTrust
+	UpdateTrust -> Loop [label="Next Season"]
+	Loop -> End [label="Simulation End" style=dotted]
+	End [label=End]
+}

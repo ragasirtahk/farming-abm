@@ -1,0 +1,23 @@
+// Yield Tracking by Accuracy Level
+digraph {
+	Start [label="Start Simulation"]
+	Loop [label="For Each Season"]
+	Start -> Loop
+	Forecast [label="Provide Forecast with Accuracy Level"]
+	Loop -> Forecast
+	DecideCrop [label="Farmer Decides Crop"]
+	Forecast -> DecideCrop [label="Based on Forecast & Rules"]
+	CropRule [label="Determine Crop Type
+(Rainfall & Risk Tolerance)"]
+	Forecast -> CropRule [label="Evaluate Conditions"]
+	CropRule -> DecideCrop [label="Select Crop"]
+	CalculateYield [label="Calculate Yield"]
+	DecideCrop -> CalculateYield [label="Apply Yield Rules"]
+	UpdateWealth [label="Update Wealth and Total Yield"]
+	CalculateYield -> UpdateWealth
+	TrackYield [label="Track Average Yield"]
+	UpdateWealth -> TrackYield
+	TrackYield -> Loop [label="Next Season"]
+	Loop -> End [label="Simulation End" style=dotted]
+	End [label="End Simulation"]
+}

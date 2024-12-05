@@ -1,0 +1,16 @@
+// Trust Recovery Post Forecast Accuracy Crash
+digraph {
+	Start [label="Start Simulation"]
+	Crash [label="Forecast Accuracy Crash"]
+	Start -> Crash
+	TrustDecreases [label="Trust Level Decreases"]
+	Crash -> TrustDecreases
+	Intervention [label="Government Intervention"]
+	TrustDecreases -> Intervention [label="Policy Implementation"]
+	Recover [label="Trust Level Recovers"]
+	Intervention -> Recover
+	Restore [label="Forecast Accuracy Restored"]
+	Recover -> Restore [label="Gradual Restoration"]
+	Restore -> End [label="Recovery Complete"]
+	End [label="End Simulation"]
+}
