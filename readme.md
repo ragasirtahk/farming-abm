@@ -1,3 +1,6 @@
+## Fun Fact
+The project contains 2,673 lines of code.
+
 This repository contains a farming agent-based model (ABM) implemented in Python using the Mesa framework. The model simulates the interactions between farmers and forecasters in an agricultural setting, exploring the impact of forecast accuracy, dissemination modes, subsidy allocation, and other factors on farmers' wealth, trust levels, crop choices, and inequality.
 
 ## Table of Contents
