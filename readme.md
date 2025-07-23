@@ -13,6 +13,7 @@ This repository contains a sophisticated agent-based model (ABM) that simulates 
 - [Project Structure](#project-structure)
 - [Dependencies](#dependencies)
 - [Results and Visualization](#results-and-visualization)
+- [Experimental Findings](#experimental-findings)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -101,34 +102,29 @@ The simulation framework addresses several important questions relevant to devel
 
 ## Usage
 
-### Running Experiments
+The model provides a comprehensive framework for running various experiments:
 
-The main simulation experiments can be run using the following scripts:
+### Basic Execution
 
-1. **Generate summary statistics for the model**:
-   ```bash
-   python summary_stats.py
-   ```
+```bash
+# Run all experiments
+python main.py
 
-2. **Run the main simulation suite**:
-   ```bash
-   python main.py
-   ```
+# Generate only summary statistics
+python summary_stats.py
 
-3. **Perform sensitivity analysis**:
-   ```bash
-   python sensitivity_tests.py
-   ```
+# Run sensitivity analysis
+python sensitivity_tests.py
 
-4. **Conduct robustness checks**:
-   ```bash
-   python robustness_tests.py
-   ```
+# Run robustness checks
+python robustness_tests.py
 
-5. **Run statistical analysis on results**:
-   ```bash
-   python statistical_analysis.py
-   ```
+# Run statistical analysis
+python statistical_analysis.py
+
+# Generate flowcharts
+python flowcharts/flowchart_generator.py
+```
 
 ### Key Experiments
 
@@ -163,118 +159,6 @@ Key parameters that can be adjusted include:
 - `forecast_accuracy`: Baseline accuracy of weather forecasts (default: 0.8)
 - `subsidy_level`: Government agricultural subsidy amount (default: 10)
 - `dissemination_modes`: Distribution of forecast delivery methods among farmers
-
-## Usage
-
-1. **Generate Summary Statistics**:
-
-   Run the `summary_stats.py` script to generate initial summary statistics and visualizations:
-
-   ```bash
-   python summary_stats.py
-   ```
-
-   Outputs will be saved in the `results/summary_stats` directory.
-
-2. **Run Main Simulations**:
-
-   Run the `main.py` script to execute the simulations and experiments:
-
-   ```bash
-   python main.py
-   ```
-
-   Outputs will be saved in the `results` directory.
-
-3. **Generate Flowcharts**:
-
-   Use the `flowcharts/flowchart_generator.py` script to generate flowcharts illustrating the model's processes:
-
-   ```bash
-   python flowcharts/flowchart_generator.py
-   ```
-
-   Flowcharts will be generated in the `flowcharts` directory.
-
-4. **Perform Statistical Analysis**:
-
-   Analyze the results using the `statistical_analysis.py` script:
-
-   ```bash
-   python statistical_analysis.py
-   ```
-
-   Analysis outputs will be saved in the `results/analysis` directory.
-
-## Project Structure
-
-```
-farming-abm/
-├── agents.py
-├── experiments.py
-├── flowcharts/
-│   ├── flowchart_generator.py
-│   └── farming_abm_flowchart.gv
-├── main.py
-├── model.py
-├── robustness_tests.py
-├── sensitivity_tests.py
-├── statistical_analysis.py
-├── summary_stats.py
-├── utils.py
-├── results/
-│   ├── analysis/
-│   ├── robustness_checks/
-│   └── summary_stats/
-└── README.md
-```
-
-- `agents.py`: Defines the `Farmer` and `Forecaster` agent classes.
-- `model.py`: Contains the `FarmingModel` class, defining the overall model.
-- `summary_stats.py`: Generates initial summary statistics and visualizations.
-- `experiments.py`: Contains functions to run various experiments and scenarios.
-- `main.py`: The main script to run simulations and experiments.
-- `statistical_analysis.py`: Performs statistical analyses on the simulation results.
-- `flowcharts/`: Contains scripts and files for generating flowcharts of the model processes.
-- `results/`: Directory where all results, visualizations, and analyses are saved.
-
-## Dependencies
-
-- Python 3.x
-- [Mesa](https://mesa.readthedocs.io/en/master/) (Agent-based modeling framework)
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- Statsmodels
-- Graphviz
-
-Install the dependencies using the provided `requirements.txt` file or manually as described in the [Installation](#installation) section.
-
-## Results and Visualization
-
-The results of the simulations and analyses are saved in the `results` directory, organized into subdirectories:
-
-- `results/summary_stats/`: Initial summary statistics and plots.
-- `results/analysis/`: Outputs from experiments and statistical analyses.
-- `results/robustness_checks/`: Results from robustness tests.
-- `results/flowcharts/`: Generated flowcharts visualizing the model's processes.
-
-Visualizations include plots of wealth distribution, trust dynamics, Gini coefficients over time, and the impact of different dissemination modes or forecast accuracies.
-
-## Contributing
-
-Contributions are welcome! Please:
-
-- Fork the repository.
-- Create a new branch for your feature or bug fix.
-- Submit a pull request with detailed descriptions of your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
 
 ## Project Structure
 
@@ -363,11 +247,15 @@ Some key findings from the model include:
 
 ## Contributing
 
-Contributions to the model are welcome. Please feel free to submit issues or pull requests.
+Contributions are welcome! Please:
+
+- Fork the repository.
+- Create a new branch for your feature or bug fix.
+- Submit a pull request with detailed descriptions of your changes.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
